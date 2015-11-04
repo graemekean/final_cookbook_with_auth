@@ -1,0 +1,32 @@
+
+<div id="bg">
+  
+</div>
+
+<div class='container'>
+<div class='holder'>
+
+<h1><%= @foodtype.name %></h1>
+<br>
+
+
+<% @ingredients.each do |ingredient| %>
+
+<% if ingredient.foodtype_id == @foodtype.id %>
+<%#= ingredient.name %>
+<%= link_to(ingredient.name, ingredient_path(ingredient)) %>&nbsp;&nbsp;&nbsp;
+<% else %>
+<% end %>
+
+
+<% end %>
+
+<%= button_to('Delete Foodtype', foodtype_path(@foodtype), method: :delete, data:{confirm: "Delete foodtype? Are you sure?"}) if can? :destroy, @foodtype %>
+<%= link_to("Edit Foodtype", edit_foodtype_path(@foodtype)) if can? :edit, @foodtype %>
+
+
+
+</div>
+
+
+</div>

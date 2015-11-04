@@ -1,0 +1,23 @@
+
+<div id="bg">
+  <img src="https://farm4.staticflickr.com/3939/15376718449_35b19ef83c.jpg" alt="">
+</div>
+
+
+<div class='container'>
+  <div class='holder'>
+  <h1>Food types</h1>
+    <p>|&nbsp;&nbsp;<% @foodtypes.each do |foodtype| %>
+    
+    <%= link_to(foodtype.name, foodtype_path(foodtype)) %> &nbsp;&nbsp;   |&nbsp;&nbsp;
+
+    <%#= button_to('Delete Country', country_path(country), method: :delete, data:{confirm: "Delete country? Are you sure?"}) %>
+    <%#= link_to("Edit Country", edit_country_path(country)) %>
+    
+    <% end %></p>
+    <br>
+    <br>
+
+   
+  </div>
+</div>

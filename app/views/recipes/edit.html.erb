@@ -1,0 +1,41 @@
+<div class='container'>
+<div class='holder'>
+<h1><%= @recipe.name %></h1>
+
+<%= form_for @recipe do |f| %>
+  <%= f.label :name, 'recipe name:' %>
+  <%= f.text_field :name %>
+  <br>
+  <br>
+  <%= f.label :description, 'Description:' %>
+  <%= f.text_field :description %>
+  <br>
+  <br>
+  <%= f.label :category_id, 'Category: ' %>
+  <%= f.select :category_id, Category.all.map { |c| [c.name, c.id] } %>
+  <br>
+
+ <%#= @recipe.ingredients.each do |ingredient| %>
+ <%#= ingredient.name %>
+  <br>
+  <%# end %>
+  
+
+  <p> <% @ingredients.each do |ingredient| %>
+  <div class='list'>
+
+    <%= f.label :ingredient, ingredient.name %>
+     <%= check_box_tag "recipe[ingredient_ids][]", ingredient.id, @recipe.ingredients.include?(ingredient) %>
+
+   <%#= link_to("Edit Quantity", edit_quantity_path(@recipe)) %>
+
+
+     </div>
+     <% end %>
+
+  <br>
+  <%= f.submit 'Update Recipe Details!!' %>
+<% end %>
+
+</div>
+</div>

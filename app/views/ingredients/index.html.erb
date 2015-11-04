@@ -1,0 +1,16 @@
+<div id="bg">
+  <img src="http://farm6.staticflickr.com/5493/12066496386_55b71161db.jpg" alt="">
+</div>
+<div class='container'>
+  <div class='holder'>
+  <h1>Ingredients</h1>
+    <% @ingredients.each do |ingredient| %>
+    
+    <%= link_to(ingredient.name, ingredient_path(ingredient)) %>&nbsp;&nbsp;
+    <%#= ingredient.foodtype.name %>
+    
+    <% end %>
+  </div>
+</div>
+
+

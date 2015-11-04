@@ -1,0 +1,49 @@
+
+<div class='container'>
+  <div class='holder'>
+  <h1>New Recipe</h1>
+  <br>
+  <br>
+
+
+    <%= form_for @recipe do |f| %>
+    <%= f.label :name, 'Recipe name:' %>
+    <%= f.text_field :name %>
+    <br>
+    <br>
+    <%= f.label :category_id, 'Category:' %>
+    <%= f.select :category_id, Category.all.map { |c| [c.name, c.id] } %>
+    <br>
+    <br>
+    <%= f.label :description, 'Description:' %>
+    <%= f.text_field :description %>
+    <br>
+    
+    <br>
+     <p><% @ingredients.each do |ingredient| %>
+    <div class='list'>
+      <%= f.label :ingredient, ingredient.name %>-
+       <%= check_box_tag "recipe[ingredient_ids][]", ingredient.id, @recipe.ingredients.include?(ingredient) %>&nbsp;&nbsp;
+       </div>
+       <% end %></p>
+
+
+    <%#= f.select :ingredient_id, Ingredient.all.map { |c| [c.name, c.id] } %>
+
+       <%#= f.check_box :ingredient, recipe.ingredients << ingredient %>
+
+
+      <%#= link_to(ingredient.name, ingredient_path(ingredient)) %>
+
+      <br>
+     <br>
+      <br>
+      <br>
+      <div id='button'>
+      <%= f.label 'Update:' %>
+      <%= f.submit 'Add Recipe!!' %>
+      </div>
+      <% end %>
+      
+    </div>
+  </div>

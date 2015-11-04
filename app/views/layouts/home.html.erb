@@ -1,0 +1,41 @@
+This is the home page content
+
+<div class='container'>
+  <div class='holder'>
+
+
+  
+
+
+
+
+    <% @categories.sort.each do |category| %>
+    <%= link_to(category.name, category_path(category)) %>
+   
+    <br>
+    <% end %>
+
+    <% @categories.each do |category| %>
+    <%= link_to(category.recipes, recipes_path(category)) %>
+    
+    <br>
+    <% end %>
+
+
+
+
+    <br>
+    <br>
+    <% @ingredients.sort.each do |ingredient| %>  
+    <%= link_to(ingredient.name, ingredient_path(ingredient)) %>
+    <br>
+    <% end %>
+
+    <br>
+    <br>
+    <% @recipes.sort.each do |recipe| %>  
+    <%= link_to(recipe.name, recipe_path(recipe)) %>
+    <br>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+
+<div class='container'>
+<div class='holder'>
+<h1>New Category</h1>
+<br>
+<br>
+
+
+<%= form_for @quantity do |f| %>
+<% if @quantity.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@quantity.errors.count, "error") %> prohibited this quantity from being saved:</h2>
+
+    <ul>
+    <% @quantity.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%#= @quantity.ingredient.name %>
+<%= f.label :ingredient_id %>
+<%= f.collection_select(:ingredient_id, Ingredient.all, :id, :name) %><br>
+<%= f.label :recipe_id %>
+<%= f.collection_select(:recipe_id, Recipe.all, :id, :name) %><br>
+<%= f.label :quantity %>
+<%= f.text_field :amount %><br>
+
+
+  <br>
+
+ 
+  
+  
+
+ <br>
+
+  
+ 
+  <br>
+  <%= f.submit 'Update Recipe Ingredient Amount!!' %>
+<% end %>
+
+</div>
+<%= link_to 'Back', quantities_path %>
+
+</div>
+</div>
+</div>

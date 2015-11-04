@@ -1,0 +1,19 @@
+
+<div class='container'>
+<div class='holder'>
+<h1>New Food type</h1>
+<br>
+<br>
+
+
+<%= form_for @foodtype do |f| %>
+  <%= f.label :name, 'Foodtype name:' %>
+  <%= f.text_field :name %>
+  <br>
+  <br>
+
+  
+  <%= f.submit 'Add Foodtype!!' %>
+<% end %>
+</div>
+</div>

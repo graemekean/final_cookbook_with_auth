@@ -1,0 +1,34 @@
+
+<div id="bg">
+  
+</div>
+
+<div class='container'>
+<div class='holder'>
+
+<h1><%= @category.name %></h1>
+<br>
+
+
+<% @recipes.each do |recipe| %>
+
+<% if recipe.category_id == @category.id %>
+<%#= recipe.name %>
+<%= link_to(recipe.name, recipe_path(recipe)) %>&nbsp;&nbsp;
+<% else %>
+<% end %>
+
+
+<% end %>
+<br>
+<br>
+
+<%= button_to('Delete Category', category_path(@category), method: :delete, data:{confirm: "Delete category? Are you sure?"}) if can? :destroy, @category %>
+<%= link_to("Edit Category", edit_category_path(@category)) if can? :edit, @category %>
+
+
+
+</div>
+
+
+</div>

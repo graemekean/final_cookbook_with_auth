@@ -1,0 +1,26 @@
+
+<div class='container'>
+<div class='holder'>
+<h1>New Ingredient</h1>
+
+<br>
+<br>
+<%= form_for @ingredient do |f| %>
+  <%= f.label :name, 'Ingredient name:' %>
+  <%= f.text_field :name %>
+  <br>
+  <br>
+
+    <%= f.label :foodtype_id, 'Food type:' %>
+    <%= f.select :foodtype_id, Foodtype.all.map { |c| [c.name, c.id] } %>
+
+    <br>
+  <br>
+ 
+
+  <br>
+  <br>
+  <%= f.submit 'Add ingredient!!' %>
+<% end %>
+</div>
+</div>

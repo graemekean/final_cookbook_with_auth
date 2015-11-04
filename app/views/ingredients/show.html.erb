@@ -1,0 +1,22 @@
+
+<div id="bg">
+  <img src="https://c1.staticflickr.com/1/590/21350243480_76d6462ced_z.jpg" alt="">
+</div>
+
+<div class='container'>
+<div class='holder'>
+
+<h1><%= @ingredient.name %></h1>
+
+<%#= image_tag(@country.flag_image, alt: "alt text is always required", width:200) %>
+
+
+
+
+<%= button_to('Delete Ingredient', ingredient_path(@ingredient), method: :delete, data:{confirm: "Delete ingredient? Are you sure?"}) if can? :destroy, @ingredient %>
+<%= link_to("Edit Ingredient", edit_ingredient_path(@ingredient)) if can? :edit, @ingredient %>
+
+</div>
+
+
+</div>

@@ -1,0 +1,48 @@
+
+<div id="bg">
+  <img src="http://www.leilappetit.com/blog/wp-content/uploads/2014/06/pimms.jpg?e80df2" alt="">
+</div>
+
+<div class='container'>
+<div class='holder'>
+
+<h1><%= @recipe.name %></h1>
+<%#= image_tag(@country.flag_image, alt: "alt text is always required", width:200) %>
+<p><b>Description: </b><%= @recipe.description %>.</p>
+<p><b>Category: </b> <%= @recipe.category.name %></p>
+
+
+<b>Ingredients: </b>
+
+
+<% @recipe.quantities.each do |quantity| %>
+<%= quantity.amount %>
+<%= quantity.ingredient.try(:name) %>
+<br>
+<% end %>
+
+
+
+
+
+
+<p>|&nbsp;&nbsp;&nbsp;&nbsp;<% @recipe.ingredients.each do |ingredient| %>
+
+    
+    <%= link_to(ingredient.name, ingredient_path(ingredient)) %>&nbsp;&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+   
+    
+<% end %>
+&nbsp;&nbsp;
+<%# raise %>
+
+<%# if user_signed_in do %>
+
+<%= button_to('Delete Recipe', recipe_path(@recipe), method: :delete, data:{confirm: "Delete recipe? Are you sure?"}) if can? :destroy, @recipe  %>
+<%= link_to("Edit Recipe", edit_recipe_path(@recipe)) if can? :edit, @recipe %>
+<%# end %>
+
+</div>
+
+
+</div>

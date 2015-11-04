@@ -1,0 +1,33 @@
+<div id="bg">
+  <img src="http://www.leilappetit.com/blog/wp-content/uploads/2014/06/pimms.jpg?e80df2" alt="">
+</div>
+
+<div class='container'>
+  <div class='holder2'>
+  <h1>List of Quantities</h1>
+ <table class="table">
+   <thead>
+     <tr>
+       <th>Ingredient</th>
+       <th>Recipe</th>
+       <th>Quantity</th>
+       <!-- <th colspan="3"></th> -->
+     </tr>
+   </thead>
+
+   <tbody>
+     <% @quantities.each do |quantity| %>
+       <tr>
+       <td><%= quantity.ingredient.try(:name) %></td>
+       <td><%= quantity.recipe.try(:name) %></td>
+         <td><%= quantity.amount %></td>
+         <td><%= link_to 'Show', quantity %></td>
+         <td><%= link_to 'Edit', edit_quantity_path(quantity)if can? :edit, @quantity  %></td>
+         <td><%= link_to 'Destroy', quantity, method: :delete, data: { confirm: 'Are you sure?' }if can? :destroy, @quantity  %></td>
+       </tr>
+     <% end %>
+   </tbody>
+ </table>
+   
+  </div>
+</div>
